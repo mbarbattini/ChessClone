@@ -41,13 +41,17 @@ void Board::readFromFenString(string fen) {
     }
     // to move
     parts = fenParts[1];
-    if (parts == "w") playerToMove = 0;
-    else playerToMove = 1;
+    playerToMove = (parts == "w") ? 0 : 1;
 
     // castling
     parts = fenParts[2];
+    whiteCastleKingside = (parts.find('K')) ? 1 : 0;
+    whiteCastleQueenside = (parts.find('Q')) ? 1 : 0;
+    blackCastleKingside = (parts.find('k')) ? 1 : 0;
+    blackCastleQueenside = (parts.find('q')) ? 1 : 0;
 
-    // to move
-    parts = fenParts[3];
+    // move number
+    moveNumber[0] = stoi(fenParts[4]);
+    moveNumber[1] = stoi(fenParts[5]);
 
 }

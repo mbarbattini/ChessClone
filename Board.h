@@ -10,6 +10,11 @@ public:
     bool playerToMove;
     Board();
     void readFromFenString(std::string);
+    bool whiteCastleKingside;
+    bool whiteCastleQueenside;
+    bool blackCastleKingside;
+    bool blackCastleQueenside;
+    int moveNumber[2];
 };
 
 #endif
